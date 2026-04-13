@@ -4,11 +4,11 @@ import {
   type RESTPostAPIChatInputApplicationCommandsJSONBody,
   SlashCommandBuilder,
   type SlashCommandUserOption
-} from "discord.js";
+} from "discord.js"
 
-import { checkRate } from "../../utils/checkRate.ts";
-import { error } from "../../utils/logger.ts";
-import { showWelcome } from "../../utils/showWelcome.ts";
+import { checkRate } from "../../utils/checkRate.ts"
+import { error } from "../../utils/logger.ts"
+import { showWelcome } from "../../utils/showWelcome.ts"
 
 const create = (): RESTPostAPIChatInputApplicationCommandsJSONBody => {
   return new SlashCommandBuilder()
@@ -18,17 +18,17 @@ const create = (): RESTPostAPIChatInputApplicationCommandsJSONBody => {
       (option: SlashCommandUserOption): SlashCommandUserOption =>
         option.setName("user").setDescription("User to welcome").setRequired(true)
     )
-    .toJSON();
-};
+    .toJSON()
+}
 
 const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> => {
-  const user = interaction.options.getUser("user");
+  const user = interaction.options.getUser("user")
   if (!user) {
-    throw new Error("Invalid user");
+    throw new Error("Invalid user")
   }
 
   if (await checkRate(interaction, user)) {
-    return;
+    return
   }
 
   await showWelcome(interaction.channel?.client ?? null, user, interaction.guild?.name as string)
@@ -39,14 +39,14 @@ const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> =
           flags: MessageFlags.Ephemeral
         })
         .then(async (): Promise<void> => {
-          await interaction.deleteReply();
-        });
+          await interaction.deleteReply()
+        })
     })
     // biome-ignore lint/suspicious/noExplicitAny: catch all errors
     .catch((e: any) => {
-      error(e);
-      throw e;
-    });
-};
+      error(e)
+      throw e
+    })
+}
 
-export { create, invoke };
+export { create, invoke }

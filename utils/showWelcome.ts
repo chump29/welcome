@@ -1,15 +1,15 @@
-import { type Channel, type Client, EmbedBuilder, type Message, type TextChannel, type User } from "discord.js";
+import { type Channel, type Client, EmbedBuilder, type Message, type TextChannel, type User } from "discord.js"
 
-import { error, info } from "./logger.ts";
+import { error, info } from "./logger.ts"
 
 const showWelcome = async (client: Client | null, user: User, name: string): Promise<void> => {
   if (!client) {
-    throw new Error("Invalid client");
+    throw new Error("Invalid client")
   }
 
   await client.channels.fetch(Bun.env.CHANNEL_ID).then(async (channel: Channel | null): Promise<void | Message> => {
     if (!channel) {
-      throw new Error("Could not get channel");
+      throw new Error("Could not get channel")
     }
 
     await (channel as TextChannel)
@@ -44,14 +44,14 @@ const showWelcome = async (client: Client | null, user: User, name: string): Pro
       })
       // biome-ignore lint/suspicious/noExplicitAny: catch all errors
       .catch((e: any) => {
-        error(e);
-        throw e;
-      });
-  });
+        error(e)
+        throw e
+      })
+  })
 
   if (Bun.env.DEBUG) {
-    info(`Welcome ${user.displayName} to the server`);
+    info(`Welcome ${user.displayName} to the server`)
   }
-};
+}
 
-export { showWelcome };
+export { showWelcome }
