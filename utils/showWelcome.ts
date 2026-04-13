@@ -21,22 +21,22 @@ const showWelcome = async (client: Client | null, user: User, name: string): Pro
               iconURL: user.displayAvatarURL(),
               name: user.displayName
             })
-            .setThumbnail(Bun.env.LOGO_URL)
-            .setTitle(`**✨ Welcome to ${name}! ✨**`)
+            .setDescription(`# ✨ *Welcome to ${name}!* ✨`)
             .setImage(Bun.env.WELCOME_IMAGE_URL)
             .addFields(
               {
                 inline: true,
-                name: "Name:",
+                name: "Username:",
                 value: user.username
               },
               {
                 inline: true,
-                name: "ID:",
+                name: "User ID:",
                 value: user.id
               }
             )
             .setFooter({
+              iconURL: Bun.env.LOGO_URL,
               text: `WelcomeBot v${Bun.env.npm_package_version}`
             })
             .toJSON()

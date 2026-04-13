@@ -5,7 +5,6 @@
     "": {
       "name": "welcome",
       "dependencies": {
-        "convert-csv-to-json": "^4.31.0",
         "date-and-time": "^4.4.0",
         "discord.js": "^14.26.2",
         "discord.js-rate-limiter": "^1.3.2",
@@ -17,7 +16,7 @@
         "@types/bun": "^1.3.12",
         "@types/ms": "^2.1.0",
         "@types/node": "^25.6.0",
-        "globals": "^17.4.0",
+        "globals": "^17.5.0",
         "husky": "^9.1.7",
         "lint-staged": "^16.4.0",
         "rimraf": "^6.1.3",
@@ -96,8 +95,6 @@
 
     "commander": ["commander@14.0.3", "", {}, "sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw=="],
 
-    "convert-csv-to-json": ["convert-csv-to-json@4.31.0", "", {}, "sha512-Hse/JX7qBnhE1IZIRGGr7EvpL3a7qqToR+xlI0HZjjctjBYApvhNQJ5CgxZIaEgcrsmzyVB9WMCAqgZ9xJQXng=="],
-
     "date-and-time": ["date-and-time@4.4.0", "", {}, "sha512-foXRmpxgnF6JApwYcYDXfXXA0V3A/5ITsCfUXBxhfNekZmv1few84MQxkgBK6lVr1vENcGHY4hzlJJwJJ5tnWA=="],
 
     "discord-api-types": ["discord-api-types@0.38.45", "", {}, "sha512-DiI01i00FPv6n+hXcFkFxK8Y/rFRpKs6U6aP32N4T73nTbj37Eua3H/95TBpLktLWB6xnLXhYDGvyLq6zzYY2w=="],
@@ -118,7 +115,7 @@
 
     "glob": ["glob@13.0.6", "", { "dependencies": { "minimatch": "^10.2.2", "minipass": "^7.1.3", "path-scurry": "^2.0.2" } }, "sha512-Wjlyrolmm8uDpm/ogGyXZXb1Z+Ca2B8NbJwqBVg0axK9GbBeoS7yGV6vjXnYdGm6X53iehEuxxbyiKp8QmN4Vw=="],
 
-    "globals": ["globals@17.4.0", "", {}, "sha512-hjrNztw/VajQwOLsMNT1cbJiH2muO3OROCHnbehc8eY5JyD2gqz4AcMHPqgaOR59DjgUjYAYLeH699g/eWi2jw=="],
+    "globals": ["globals@17.5.0", "", {}, "sha512-qoV+HK2yFl/366t2/Cb3+xxPUo5BuMynomoDmiaZBIdbs+0pYbjfZU+twLhGKp4uCZ/+NbtpVepH5bGCxRyy2g=="],
 
     "husky": ["husky@9.1.7", "", { "bin": { "husky": "bin.js" } }, "sha512-5gs5ytaNjBrh5Ow3zrvdUUY+0VxIuWVL4i9irt6friV+BqdCfmV11CQTWMiBYWHbXhco+J1kHfTOUkePhCDvMA=="],
 
