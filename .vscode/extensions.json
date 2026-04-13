@@ -1,10 +1,8 @@
 {
   "recommendations": [
     "biomejs.biome",
-    "csvlinter.csvlinter-vscode",
     "darkriszty.markdown-table-prettify",
     "davidanson.vscode-markdownlint",
-    "mechatroner.rainbow-csv",
     "streetsidesoftware.code-spell-checker",
     "tamasfe.even-better-toml"
   ]
