@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "welcome",
+      "name": "welcomebot",
       "dependencies": {
         "date-and-time": "^4.4.0",
         "discord.js": "^14.26.3",

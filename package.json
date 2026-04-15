@@ -1,16 +1,17 @@
 {
-  "name": "welcome",
+  "name": "welcomebot",
   "version": "1.0.0",
   "private": true,
   "description": "WelcomeBot for Discord",
   "keywords": [
     "welcome",
+    "bot",
     "message"
   ],
-  "homepage": "https://github.com/chump29/welcome",
+  "homepage": "https://github.com/chump29/welcomebot",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chump29/welcome.git"
+    "url": "git+https://github.com/chump29/welcomebot.git"
   },
   "license": "GPL-3.0-only",
   "author": {
@@ -29,7 +30,7 @@
     "lint:ci": "biome ci --verbose --reporter=default --reporter=github",
     "lint:env": "dotenv-linter check .",
     "prepare": "husky",
-    "prod": "bun run index.ts"
+    "prod": "NODE_ENV=production bun run index.ts"
   },
   "lint-staged": {
     "*.{json,ts}": "biome ci --no-errors-on-unmatched",
@@ -55,6 +56,7 @@
     "rimraf": "^6.1.3",
     "typescript": "^6.0.2"
   },
+  "packageManager": "bun@1.3.12",
   "engines": {
     "bun": "~1.3",
     "node": "^24"

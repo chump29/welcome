@@ -1,0 +1,16 @@
+services:
+  welcomebot:
+    container_name: welcomebot
+    image: git.postfmly.com/admin/welcomebot:arm64
+    restart: unless-stopped
+    ports:
+      - "8002:8002"
+    environment:
+      - TZ=America/Chicago
+    labels:
+      - wud.display.name=WelcomeBot
+      - homepage.group=Personal
+      - homepage.name=WelcomeBot
+      - homepage.icon=https://welcomebot.postfmly.com/welcomebot.png
+
+networks: {}

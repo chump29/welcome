@@ -19,7 +19,7 @@ interface ICommandFile {
   invoke(interaction: ChatInputCommandInteraction): Promise<void>
 }
 
-const loadCommands = async (client: Client): Promise<void> => {
+const loadCommands = async (client: Client): Promise<Client> => {
   const interactionCreate: IInteractionCreate = await import(`${import.meta.dirname}/${Events.InteractionCreate}.ts`)
   client.on(Events.InteractionCreate, async (interaction: Interaction): Promise<void> => {
     await interactionCreate.invoke(interaction as ChatInputCommandInteraction)
@@ -29,6 +29,8 @@ const loadCommands = async (client: Client): Promise<void> => {
   client.once(Events.ClientReady, async (client: Client): Promise<void> => {
     await clientReady.invoke(client)
   })
+
+  return client
 }
 
 export { type ICommandFile, loadCommands }
