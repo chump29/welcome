@@ -12,7 +12,7 @@ const botClient = async (): Promise<Client> => {
     presence: {
       activities: [
         {
-          name: "Welcoming users",
+          name: "Welcoming new users...",
           type: ActivityType.Custom
         }
       ]

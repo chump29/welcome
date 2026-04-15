@@ -1,3 +1,5 @@
+import { parse } from "path"
+
 import {
   type ChatInputCommandInteraction,
   MessageFlags,
@@ -12,7 +14,7 @@ import { showWelcome } from "../../utils/showWelcome.ts"
 
 const create = (): RESTPostAPIChatInputApplicationCommandsJSONBody => {
   return new SlashCommandBuilder()
-    .setName(import.meta.file.slice(0, -3))
+    .setName(parse(import.meta.file).name)
     .setDescription("Send welcome message")
     .addUserOption(
       (option: SlashCommandUserOption): SlashCommandUserOption =>
