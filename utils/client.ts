@@ -42,14 +42,12 @@ const client = async (): Promise<Client> => {
   return client
 }
 
-const login = async (client: Client): Promise<string> => {
+const login = async (client: Client): Promise<void> => {
   await client.login(Bun.env.TOKEN)
 
   if (client.user && Bun.env.DEBUG) {
     info(`Connected as ${client.user.displayName} (${client.user.tag})`)
   }
-
-  return "" // * NOTE: not returning token
 }
 
 export { client, login }

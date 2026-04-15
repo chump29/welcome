@@ -8,6 +8,6 @@ import { logo } from "./utils/logo.ts"
 Bun.env.DEBUG = Bun.env.IS_DEBUG === "true" ? true : false
 
 await loadCommands(await client())
-  .then(async (client: Client): Promise<string> => await login(client))
+  .then(async (client: Client): Promise<void> => await login(client))
   .then(async (): Promise<void> => await logo())
   .then((): void => info("Running..."))
