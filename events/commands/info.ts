@@ -37,6 +37,7 @@ const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> =
             iconURL: Bun.env.LOGO_URL,
             name: `${Bun.env.NAME} v${Bun.env.npm_package_version}`
           })
+          .setThumbnail(Bun.env.LOGO_URL)
           .setDescription("- Welcomes new users to the server")
           .setFooter({
             text: "By Chris Post"
