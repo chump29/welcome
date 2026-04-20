@@ -36,14 +36,13 @@ const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> =
 
   await showWelcome(interaction.channel.client, user, interaction.guild.name)
     .then(async (): Promise<void> => {
-      await interaction
-        .reply({
-          content: "_ _",
-          flags: MessageFlags.Ephemeral
-        })
-        .then(async (): Promise<void> => {
-          await interaction.deleteReply()
-        })
+      await interaction.reply({
+        content: "_ _",
+        flags: MessageFlags.Ephemeral
+      })
+    })
+    .then(async (): Promise<void> => {
+      await interaction.deleteReply()
     })
     // biome-ignore lint/suspicious/noExplicitAny: catch all errors
     .catch((e: any) => {

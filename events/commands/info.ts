@@ -22,17 +22,6 @@ const create = (): RESTPostAPIChatInputApplicationCommandsJSONBody => {
     .toJSON()
 }
 
-const embed: EmbedBuilder = new EmbedBuilder()
-  .setColor("#78866b")
-  .setAuthor({
-    iconURL: Bun.env.LOGO_URL,
-    name: `${Bun.env.NAME} v${Bun.env.npm_package_version}`
-  })
-  .setDescription("- Welcomes new users to the server")
-  .setFooter({
-    text: "By Chris Post"
-  })
-
 const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> => {
   if (await checkRate(interaction)) {
     return
@@ -42,7 +31,16 @@ const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> =
     .reply({
       flags: MessageFlags.Ephemeral,
       embeds: [
-        embed
+        new EmbedBuilder()
+          .setColor("#78866b")
+          .setAuthor({
+            iconURL: Bun.env.LOGO_URL,
+            name: `${Bun.env.NAME} v${Bun.env.npm_package_version}`
+          })
+          .setDescription("- Welcomes new users to the server")
+          .setFooter({
+            text: "By Chris Post"
+          })
       ]
     })
     // biome-ignore lint/suspicious/noExplicitAny: catch all errors
