@@ -93,15 +93,17 @@
 
 #### Environment Variables:
 
-|  📝 Description   |    📌 Variable    |  {...} Value   |
-|:-----------------:|:-----------------:|:--------------:|
-|       Debug       |     IS_DEBUG      | true/**false** |
-| Logo Server Port  |     LOGO_PORT     |      8002      |
-|  Run Logo Server  |    LOGO_SERVER    | **true**/false |
-|     Logo URL      |     LOGO_URL      |   [logo url]   |
-|     Bot Name      |       NAME        |   WelcomeBot   |
-| Rate Limiter (ms) |       RATE        |      1000      |
-| Welcome Image URL | WELCOME_IMAGE_URL |  [image url]   |
+|   📝 Description   |    📌 Variable    |  {...} Value   |
+|:------------------:|:-----------------:|:--------------:|
+| Message Channel ID |    CHANNEL_ID     |  [channel id]  |
+|       Debug        |     IS_DEBUG      | true/**false** |
+|  Logo Server Port  |     LOGO_PORT     |      8002      |
+|  Run Logo Server   |    LOGO_SERVER    | **true**/false |
+|      Logo URL      |     LOGO_URL      |   [logo url]   |
+|      Bot Name      |       NAME        |   WelcomeBot   |
+| Message Rate Limit |       RATE        |       1s       |
+|     Bot Token      |       TOKEN       |    [token]     |
+| Welcome Image URL  | WELCOME_IMAGE_URL |  [image url]   |
 
 #### Deployment:
 
