@@ -5,8 +5,9 @@
   "description": "WelcomeBot for Discord",
   "keywords": [
     "welcome",
-    "bot",
-    "message"
+    "message",
+    "discord",
+    "bot"
   ],
   "homepage": "https://github.com/chump29/welcomebot",
   "repository": {
