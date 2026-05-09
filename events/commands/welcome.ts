@@ -9,7 +9,6 @@ import {
   type SlashCommandUserOption
 } from "discord.js"
 
-import { error } from "../../utils/logger.ts"
 import { showWelcome } from "../../utils/showWelcome.ts"
 
 const create = (): RESTPostAPIChatInputApplicationCommandsJSONBody => {
@@ -43,10 +42,6 @@ const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> =
     })
     .then(async (): Promise<void> => {
       await interaction.deleteReply()
-    })
-    .catch((e: unknown): void => {
-      error(e)
-      throw e
     })
 }
 

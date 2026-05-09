@@ -11,8 +11,3 @@ echo -e "${_build} ${_yellow}Building${_nc}:\n"
 echo -e "\n${_start} ${_yellow}Starting${_nc}:\n"
 docker container rm --force welcomebot > /dev/null 2>&1
 docker container run --rm --name welcomebot --publish 8002:8002 --env TZ=America/Chicago --detach welcomebot
-
-unset _yellow
-unset _nc
-unset _build
-unset _start

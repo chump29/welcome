@@ -10,8 +10,7 @@ import {
   SlashCommandBuilder
 } from "discord.js"
 
-import { checkRate } from "../../utils/checkRate.ts"
-import { error } from "../../utils/logger.ts"
+import { checkRate } from "@postfmly/checkrate"
 
 const create = (): RESTPostAPIChatInputApplicationCommandsJSONBody => {
   return new SlashCommandBuilder()
@@ -27,27 +26,26 @@ const invoke = async (interaction: ChatInputCommandInteraction): Promise<void> =
     return
   }
 
-  await interaction
-    .reply({
-      flags: MessageFlags.Ephemeral,
-      embeds: [
-        new EmbedBuilder()
-          .setColor("#78866b")
-          .setAuthor({
-            iconURL: Bun.env.LOGO_URL,
-            name: `${Bun.env.NAME} v${Bun.env.npm_package_version}`
-          })
-          .setThumbnail(Bun.env.LOGO_URL)
-          .setDescription("- Welcomes new users to the server")
-          .setFooter({
-            text: "By Chris Post"
-          })
-      ]
-    })
-    .catch((e: unknown): void => {
-      error(e)
-      throw e
-    })
+  if (!Bun.env.LOGO_URL) {
+    throw new Error("Invalid LOGO_URL")
+  }
+
+  await interaction.reply({
+    flags: MessageFlags.Ephemeral,
+    embeds: [
+      new EmbedBuilder()
+        .setColor("#78866b")
+        .setAuthor({
+          iconURL: Bun.env.LOGO_URL,
+          name: `${Bun.env.NAME} v${Bun.env.npm_package_version}`
+        })
+        .setThumbnail(Bun.env.LOGO_URL)
+        .setDescription("- Welcomes new users to the server")
+        .setFooter({
+          text: "By Chris Post"
+        })
+    ]
+  })
 }
 
 export { create, invoke }

@@ -8,7 +8,7 @@ import {
   userMention
 } from "discord.js"
 
-import { info } from "./logger.ts"
+import { info } from "@postfmly/logger"
 
 const showWelcome = async (client: Client | null, user: User, name: string): Promise<void> => {
   if (!client) {
@@ -54,7 +54,7 @@ const showWelcome = async (client: Client | null, user: User, name: string): Pro
   })
 
   if (Bun.env.DEBUG) {
-    info(`Welcome ${user.displayName} to the server`)
+    info(`Welcoming ${user.displayName} (${user.username}) to the server`)
   }
 }
 

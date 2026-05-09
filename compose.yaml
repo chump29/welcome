@@ -6,6 +6,10 @@ services:
     ports:
       - "8002:8002"
     environment:
+      - LOGO_NAME=welcomebot.webp
+      - LOGO_PATH=./utils/images
+      - LOGO_PORT=8005
+      - LOGO_URL=https://welcomebot.postfmly.us/welcomebot.webp
       - TZ=America/Chicago
     env_file: .env
     labels:
