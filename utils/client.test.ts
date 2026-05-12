@@ -44,10 +44,11 @@ describe("client", (): void => {
 
     // ! TODO: test CLIENT.on(Events.GuildMemberAdd)
 
-    expect(processSpy).toHaveBeenNthCalledWith(1, "SIGINT", expect.any(Function))
-    expect(processSpy).toHaveBeenNthCalledWith(2, "SIGTERM", expect.any(Function))
     process.emit("SIGINT")
+    expect(processSpy).toHaveBeenNthCalledWith(1, "SIGINT", expect.any(Function))
+
     process.emit("SIGTERM")
+    expect(processSpy).toHaveBeenNthCalledWith(2, "SIGTERM", expect.any(Function))
   })
 
   test("login fail - token", (): void => {
