@@ -44,6 +44,12 @@ describe("client", (): void => {
 
     // ! TODO: test CLIENT.on(Events.GuildMemberAdd)
 
+    mock.module("./client.ts", (): unknown => {
+      return {
+        shutdown: jest.fn()
+      }
+    })
+
     process.emit("SIGINT")
     expect(processSpy).toHaveBeenNthCalledWith(1, "SIGINT", expect.any(Function))
 
