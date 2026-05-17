@@ -13,20 +13,50 @@ describe("showWelcome", (): void => {
     expect(showWelcome(null, {} as User, "")).rejects.toThrowError("Invalid client")
   })
 
+  const channel: TextChannel = {
+    send: jest.fn()
+  } as unknown as TextChannel
+
+  const channelManager: ChannelManager = {
+    cache: new Map(),
+    fetch: jest.fn().mockResolvedValue(null)
+  } as unknown as ChannelManager
+
+  const client: Client = {
+    channels: channelManager
+  } as unknown as Client
+
+  test("showWelcome - no channel_id", (): void => {
+    const bak: string | undefined = Bun.env.CHANNEL_ID
+    Bun.env.CHANNEL_ID = undefined
+    expect(showWelcome(client, {} as User, "")).rejects.toThrowError("Invalid CHANNEL_ID")
+    Bun.env.CHANNEL_ID = bak
+  })
+
+  const ID_LEN: number = 19
+
+  Bun.env.CHANNEL_ID = fake("#".repeat(ID_LEN))
+
+  test("showWelcome - no logo", (): void => {
+    const bak: string | undefined = Bun.env.LOGO_URL
+    Bun.env.LOGO_URL = undefined
+    expect(showWelcome(client, {} as User, "")).rejects.toThrowError("Invalid LOGO_URL")
+    Bun.env.LOGO_URL = bak
+  })
+
+  test("showWelcome - no logo2", (): void => {
+    const bak: string | undefined = Bun.env.LOGO2_URL
+    Bun.env.LOGO2_URL = undefined
+    expect(showWelcome(client, {} as User, "")).rejects.toThrowError("Invalid LOGO2_URL")
+    Bun.env.LOGO2_URL = bak
+  })
+
   test("showWelcome - no channel", (): void => {
-    const channelManager: ChannelManager = {
-      fetch: jest.fn().mockResolvedValue(null)
-    } as unknown as ChannelManager
-
-    const client: Client = {
-      channels: channelManager
-    } as unknown as Client
-
     expect(showWelcome(client, {} as User, "")).rejects.toThrowError("Invalid channel")
   })
 
   test("showWelcome - pass", (): void => {
-    const ID_LEN: number = 19
+    client.channels.fetch = jest.fn().mockResolvedValue(channel)
 
     const user: User = {
       displayAvatarURL: jest.fn().mockReturnValue(url()),
@@ -34,24 +64,6 @@ describe("showWelcome", (): void => {
       id: fake("#".repeat(ID_LEN)),
       username: username()
     } as unknown as User
-
-    const channel: TextChannel = {
-      send: jest.fn()
-    } as unknown as TextChannel
-
-    const channelManager: ChannelManager = {
-      cache: new Map([
-        [
-          channel.id,
-          channel
-        ]
-      ]),
-      fetch: jest.fn().mockResolvedValue(channel)
-    } as unknown as ChannelManager
-
-    const client: Client = {
-      channels: channelManager
-    } as Client
 
     expect(showWelcome(client, user, "TEST")).resolves
   })

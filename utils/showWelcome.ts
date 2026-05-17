@@ -15,7 +15,19 @@ const showWelcome = async (client: Client | null, user: User, name: string): Pro
     throw new Error("Invalid client")
   }
 
+  if (!Bun.env.CHANNEL_ID) {
+    throw new Error("Invalid CHANNEL_ID")
+  }
+
   await client.channels.fetch(Bun.env.CHANNEL_ID).then(async (channel: Channel | null): Promise<void | Message> => {
+    if (!Bun.env.LOGO_URL) {
+      throw new Error("Invalid LOGO_URL")
+    }
+
+    if (!Bun.env.LOGO2_URL) {
+      throw new Error("Invalid LOGO2_URL")
+    }
+
     if (!channel) {
       throw new Error("Invalid channel")
     }
@@ -30,7 +42,7 @@ const showWelcome = async (client: Client | null, user: User, name: string): Pro
             name: user.displayName
           })
           .setDescription(`# ✨ *Welcome to ${name}!* ✨`)
-          .setImage(Bun.env.WELCOME_IMAGE_URL)
+          .setImage(Bun.env.LOGO2_URL)
           .addFields(
             {
               inline: true,

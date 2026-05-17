@@ -102,23 +102,25 @@
 
 #### Environment Variables:
 
-|   📝 Description   |    📌 Variable    |  {...} Value   |
-|:------------------:|:-----------------:|:--------------:|
-| Message Channel ID |    CHANNEL_ID     |  [channel id]  |
-|       Debug        |     IS_DEBUG      | true/**false** |
-|      Logo URL      |     LOGO_URL      |     [url]      |
-|      Bot Name      |       NAME        |   WelcomeBot   |
-|     Bot Token      |       TOKEN       |    [token]     |
-| Welcome Image URL  | WELCOME_IMAGE_URL |     [url]      |
+|   📝 Description   | 📌 Variable |  {...} Value   |
+|:------------------:|:-----------:|:--------------:|
+| Message Channel ID | CHANNEL_ID  |  [channel id]  |
+|       Debug        |  IS_DEBUG   | true/**false** |
+|      Logo URL      |  LOGO_URL   |     [url]      |
+|     Logo 2 URL     |  LOGO2_URL  |     [url]      |
+|      Bot Name      |    NAME     |   WelcomeBot   |
+|     Bot Token      |    TOKEN    |    [token]     |
 
 ##### From `@postfmly/logoserver`:
 
-| 📝 Description | 📌 Variable |    {...} Value    |
-|:--------------:|:-----------:|:-----------------:|
-|   IPv4/IPv6    |  LOGO_IPv6  |  true/**false**   |
-|   Logo Name    |  LOGO_NAME  |    [filename]     |
-|   Local Path   |  LOGO_PATH  |      [path]       |
-|      Port      |  LOGO_PORT  | **Random**/[port] |
+|  📝 Description   | 📌 Variable |    {...} Value    |
+|:-----------------:|:-----------:|:-----------------:|
+|     IPv4/IPv6     |  LOGO_IPv6  |  true/**false**   |
+|     Logo Name     |  LOGO_NAME  |    [filename]     |
+|  Logo Local Path  |  LOGO_PATH  |      [path]       |
+|       Port        |  LOGO_PORT  | **Random**/[port] |
+|    Logo 2 Name    | LOGO2_NAME  |    [filename]     |
+| Logo 2 Local Path | LOGO2_PATH  |      [path]       |
 
 ##### From `@postfmly/checkrate`:
 

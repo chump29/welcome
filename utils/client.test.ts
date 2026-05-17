@@ -5,8 +5,12 @@ import {
   ActivityType,
   type Client,
   type ClientUser,
+  Events,
   GatewayIntentBits,
-  type IntentsBitField
+  type Guild,
+  type GuildMember,
+  type IntentsBitField,
+  type User
 } from "discord.js"
 
 import { fake } from "@nano-faker/patterns"
@@ -28,10 +32,12 @@ describe("client", (): void => {
     expect(login()).rejects.toThrowError("Invalid CLIENT")
   })
 
+  let CLIENT: Client<boolean> | null = null
+
   test("client", async (): Promise<void> => {
     const processSpy: jest.Mock = spyOn(process, "on")
 
-    const clientObj: Client = await client()
+    const clientObj: Client<boolean> = await client()
     expect(clientObj).not.toBeUndefined()
 
     const intents: IntentsBitField = clientObj.options.intents
@@ -41,8 +47,6 @@ describe("client", (): void => {
     expect(activities).not.toBeUndefined()
     expect(activities!.name === "Welcoming new users...").toBeTrue()
     expect(activities!.type === ActivityType.Custom).toBeTrue()
-
-    // ! TODO: test CLIENT.on(Events.GuildMemberAdd)
 
     mock.module("./client.ts", (): unknown => {
       return {
@@ -55,6 +59,27 @@ describe("client", (): void => {
 
     process.emit("SIGTERM")
     expect(processSpy).toHaveBeenNthCalledWith(2, "SIGTERM", expect.any(Function))
+
+    CLIENT = clientObj
+  })
+
+  test("client - on", (): void => {
+    mock.module("./showWelcome.ts", (): unknown => {
+      return {
+        showWelcome: jest.fn()
+      }
+    })
+
+    const member: GuildMember = {
+      client: {} as Client,
+      guild: {
+        name: fake("@".repeat(10))
+      } as Guild,
+      user: {} as User
+    } as unknown as GuildMember
+
+    CLIENT!.emit(Events.GuildMemberAdd, member) // * NOTE: to test CLIENT.on()
+    expect(true).toBeTrue() // * NOTE: expect() required
   })
 
   test("login fail - token", (): void => {

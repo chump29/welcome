@@ -47,7 +47,7 @@
   "dependencies": {
     "@postfmly/checkrate": "^1.0.6",
     "@postfmly/logger": "^1.0.8",
-    "@postfmly/logoserver": "^1.0.8",
+    "@postfmly/logoserver": "^1.0.9",
     "discord.js": "^14.26.4",
     "ms": "^2.1.3"
   },

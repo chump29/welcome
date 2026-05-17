@@ -9,7 +9,7 @@
 ![discord.js](https://img.shields.io/badge/discord.js-^14.26.4-informational?style=plastic&logo=discord.js)
 
 ![CodeQL](https://github.com/chump29/welcomebot/workflows/CodeQL/badge.svg) &nbsp;
-![Coverage](https://img.shields.io/badge/Coverage-99.07%25-success?style=plastic&logo=jest)
+![Coverage](https://img.shields.io/badge/Coverage-100%25-success?style=plastic&logo=jest)
 
 ![License](https://img.shields.io/github/license/chump29/welcomebot?style=plastic&color=blueviolet&label=License&logo=gplv3)
 
@@ -102,23 +102,25 @@
 
 #### Environment Variables:
 
-|   📝 Description   |    📌 Variable    |  {...} Value   |
-|:------------------:|:-----------------:|:--------------:|
-| Message Channel ID |    CHANNEL_ID     |  [channel id]  |
-|       Debug        |     IS_DEBUG      | true/**false** |
-|      Logo URL      |     LOGO_URL      |     [url]      |
-|      Bot Name      |       NAME        |   WelcomeBot   |
-|     Bot Token      |       TOKEN       |    [token]     |
-| Welcome Image URL  | WELCOME_IMAGE_URL |     [url]      |
+|   📝 Description   | 📌 Variable |  {...} Value   |
+|:------------------:|:-----------:|:--------------:|
+| Message Channel ID | CHANNEL_ID  |  [channel id]  |
+|       Debug        |  IS_DEBUG   | true/**false** |
+|      Logo URL      |  LOGO_URL   |     [url]      |
+|     Logo 2 URL     |  LOGO2_URL  |     [url]      |
+|      Bot Name      |    NAME     |   WelcomeBot   |
+|     Bot Token      |    TOKEN    |    [token]     |
 
 ##### From `@postfmly/logoserver`:
 
-| 📝 Description | 📌 Variable |    {...} Value    |
-|:--------------:|:-----------:|:-----------------:|
-|   IPv4/IPv6    |  LOGO_IPv6  |  true/**false**   |
-|   Logo Name    |  LOGO_NAME  |    [filename]     |
-|   Local Path   |  LOGO_PATH  |      [path]       |
-|      Port      |  LOGO_PORT  | **Random**/[port] |
+|  📝 Description   | 📌 Variable |    {...} Value    |
+|:-----------------:|:-----------:|:-----------------:|
+|     IPv4/IPv6     |  LOGO_IPv6  |  true/**false**   |
+|     Logo Name     |  LOGO_NAME  |    [filename]     |
+|  Logo Local Path  |  LOGO_PATH  |      [path]       |
+|       Port        |  LOGO_PORT  | **Random**/[port] |
+|    Logo 2 Name    | LOGO2_NAME  |    [filename]     |
+| Logo 2 Local Path | LOGO2_PATH  |      [path]       |
 
 ##### From `@postfmly/checkrate`:
 

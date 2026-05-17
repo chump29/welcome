@@ -1,12 +1,12 @@
 declare module "bun" {
   interface Env {
-    CHANNEL_ID: string
+    CHANNEL_ID: string | undefined
     DEBUG: boolean
-    IS_DEBUG: string
-    LOGO_URL: string
-    NAME: string
-    npm_package_version: string
-    TOKEN: string
-    WELCOME_IMAGE_URL: string
+    IS_DEBUG: string | undefined
+    LOGO_URL: string | undefined
+    LOGO2_URL: string | undefined
+    NAME: string | undefined
+    npm_package_version: string | undefined
+    TOKEN: string | undefined
   }
 }

@@ -8,8 +8,11 @@ services:
     environment:
       - LOGO_NAME=welcomebot.webp
       - LOGO_PATH=./utils/images
+      - LOGO2_NAME=welcome.jpg
+      - LOGO2_PATH=./utils/images
       - LOGO_PORT=8002
       - LOGO_URL=https://welcomebot.postfmly.us/welcomebot.webp
+      - LOGO2_URL=https://welcomebot.postfmly.us/welcome.jpg
       - TZ=America/Chicago
     env_file: .env
     labels:
