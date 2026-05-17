@@ -40,7 +40,8 @@ const shutdown = async (event: string): Promise<void> => {
 const client = async (): Promise<Client> => {
   CLIENT = new Client({
     intents: [
-      GatewayIntentBits.Guilds
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMembers
     ],
     presence: {
       activities: [
